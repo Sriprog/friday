@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 from googletrans import Translator
 from playsound import playsound
 import pyautogui
-import psutil
+
 from tkinter import Label
 from tkinter import Entry
 from tkinter import Button
@@ -23,7 +23,7 @@ import pyttsx3
 import pywhatkit as pywhatkit
 import speech_recognition as sr
 import wikipedia
-import pyaudio
+import whatsapp
 import smtplib
 import pyjokes
 import PyPDF2
@@ -31,7 +31,8 @@ import PyPDF2
 friday = pyttsx3.init('sapi5')
 voices = friday.getProperty('voices')
 friday.setProperty('voice', voices[3].id)
-
+friday.setProperty('volume',100)
+friday.setProperty('rate',170)
 
 def speak(audio):
     print("..................")
@@ -484,11 +485,11 @@ if __name__ == "__main__":
                     playsound("alarm.mp3")
                 speak("Alarm has been Started")
 
-        elif "come online jarvis" in query:
+        elif "online jarvis" in query:
             playsound("jarvisIntro.mp3")
             friday.setProperty('voice', voices[0].id)
 
-        elif "come online friday" in query:
+        elif "online friday" in query:
             friday.setProperty('voice', voices[3].id)
             speak("I am friday. Your Personal Assistant. Lets rock and roll")
             speak("What can I do For you")
@@ -574,3 +575,60 @@ if __name__ == "__main__":
         elif 'read book' in query:
             speak("Your book is eat that frog")
             Reader()
+
+        elif 'whatsapp message' in query:
+            speak("To whom should I send??")
+            name = takeCommand()
+
+            if 'Amma' in name:
+                num = "7794897284"
+                speak(f"Should I ping {name}??")
+                mess = takeCommand()
+                speak("specify time in hr")
+                hr = takeCommand()
+                speak("specify time in min")
+                min = takeCommand()
+                whatsapp.whatsapp(num, mess, hr, min)
+                speak("Message sent successfully")
+
+
+            elif 'Akka' in name:
+                num = "6300133663"
+                speak(f"Should I ping {name}??")
+                mess = takeCommand()
+                speak("specify time in hr")
+                hr = takeCommand()
+                speak("specify time in min")
+                min = takeCommand()
+                whatsapp.whatsapp(num, mess, hr, min)
+                speak("Message sent successfully")
+
+
+            elif 'family' in name:
+                gro = "FyBnZ79mevuJJ3uCPjJaeJ"
+                speak(f'What shall I send to group {gro}')
+                mess = takeCommand()
+                speak("specify time in hr")
+                hr = takeCommand()
+                speak("specify time in min")
+                min = takeCommand()
+                whatsapp.Whatsapp_Grp(gro, mess, hr, min)
+                speak("Message sent successfully")
+
+        elif "message now" in query:
+            speak("To whom should I send??")
+            name = takeCommand()
+
+            if 'Amma' in name:
+                num = "7794897284"
+                mess = takeCommand()
+                whatsapp.WhatsAppInstant(num, mess)
+                speak("Message sent successfully")
+
+
+            elif 'Akka' in name:
+                num = "6300133663"
+                speak(f"Should I dm {name}??")
+                mess = takeCommand()
+                whatsapp.WhatsAppInstant(num, mess)
+                speak("Message sent successfully")
