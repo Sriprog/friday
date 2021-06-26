@@ -581,7 +581,7 @@ if __name__ == "__main__":
             name = takeCommand()
 
             if 'Amma' in name:
-                num = "7794897284"
+                num = "*************"
                 speak(f"Should I ping {name}??")
                 mess = takeCommand()
                 speak("specify time in hr")
@@ -593,7 +593,7 @@ if __name__ == "__main__":
 
 
             elif 'Akka' in name:
-                num = "6300133663"
+                num = "************"
                 speak(f"Should I ping {name}??")
                 mess = takeCommand()
                 speak("specify time in hr")
@@ -605,7 +605,7 @@ if __name__ == "__main__":
 
 
             elif 'family' in name:
-                gro = "FyBnZ79mevuJJ3uCPjJaeJ"
+                gro = "**********"
                 speak(f'What shall I send to group {gro}')
                 mess = takeCommand()
                 speak("specify time in hr")
@@ -619,15 +619,15 @@ if __name__ == "__main__":
             speak("To whom should I send??")
             name = takeCommand()
 
-            if 'Amma' in name:
-                num = "7794897284"
+            if 'Name1' in name:
+                num = "***********"
                 mess = takeCommand()
                 whatsapp.WhatsAppInstant(num, mess)
                 speak("Message sent successfully")
 
 
-            elif 'Akka' in name:
-                num = "6300133663"
+            elif 'Name2' in name:
+                num = "********"
                 speak(f"Should I dm {name}??")
                 mess = takeCommand()
                 whatsapp.WhatsAppInstant(num, mess)
